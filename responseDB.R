@@ -16,7 +16,6 @@ Datasets <- function(URL){
   
   # Continue  
   read.csv(URL)
-  
 }
 
 # summary in datasets
@@ -29,7 +28,7 @@ describe <- function(URL){
 normalize <- function(URL)
 
 open_ended <- c(
-  'stats101-2019-01-11.csv' = as.data.frame(Datasets('https://raw.githubusercontent.com/responsedb/datasets/master/open-ended/error-counts/stats101-2019-01-11.csv')),
+  'stats101-2019-01-11.csv' = Datasets('https://raw.githubusercontent.com/responsedb/datasets/master/open-ended/error-counts/stats101-2019-01-11.csv'),
   'stats101-2019-03-28.csv' = Datasets('https://raw.githubusercontent.com/responsedb/datasets/master/open-ended/error-counts/stats101-2019-03-28.csv'),
   'stats101-2019-05-02.csv' = Datasets('https://raw.githubusercontent.com/responsedb/datasets/master/open-ended/error-counts/stats101-2019-05-02.csv'),
   'stats101-2019-07-04.csv' = Datasets('https://raw.githubusercontent.com/responsedb/datasets/master/open-ended/error-counts/stats101-2019-07-04.csv'),
@@ -47,4 +46,3 @@ open_ended <- c(
   'stats101-2019-02-11.csv' = Datasets('https://raw.githubusercontent.com/responsedb/datasets/master/open-ended/error-counts/stats101-2019-02-11.csv'),
   'stats101-2019-03-11.csv' = Datasets('https://raw.githubusercontent.com/responsedb/datasets/master/open-ended/error-counts/stats101-2019-03-11.csv')
   )
-  
