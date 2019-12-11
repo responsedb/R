@@ -25,7 +25,9 @@ describe <- function(URL){
   summary(url)
 }
 
-normalize <- function(URL)
+normalize <- function(URL){
+  
+}
 
 open_ended <- c(
   'stats101-2019-01-11.csv' = Datasets('https://raw.githubusercontent.com/responsedb/datasets/master/open-ended/error-counts/stats101-2019-01-11.csv'),
