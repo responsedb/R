@@ -1,4 +1,26 @@
 
+# Create Class  Dataset
+Dataset <- setClass("Dataset", slots=list(url="character", data="data.frame"))
+
+setMethod(
+  "read",
+  "Dataset",
+  function(self) {
+    self@data = read.csv(self@url)
+    self
+  }
+)
+
+open_ended <- list(
+  'stats101-2019-01-11.csv' = Dataset(url="https://raw.githubusercontent.com/responsedb/datasets/master/open-ended/error-counts/stats101-2019-03-28.csv"),
+  'stats101-2019-03-28.csv' = Dataset(url="https://raw.githubusercontent.com/responsedb/datasets/master/open-ended/error-counts/stats101-2019-05-02.csv")
+)
+
+
+# code --------------------------------------------------------------------
+
+
+dataset = open_ended['stats101-2019-01-11.csv'].read()
 # Return types of avaible datasets
 types <- function(){
   # Return types of avaible datasets
