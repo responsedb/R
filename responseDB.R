@@ -2,19 +2,41 @@
 # Create Class  Dataset
 Dataset <- setClass("Dataset", slots=list(url="character", data="data.frame"))
 
+read <- function(self) 0
+describe <- function(self) 0
+  
+setGeneric("read", function(self) {
+  standardGeneric("read")
+})
+
 setMethod(
   "read",
   "Dataset",
   function(self) {
-    self@data = read.csv(self@url)
-    self
+    self@data <- read.csv(self@url)
+    return(self)
   }
 )
 
+setMethod(
+  "describe",
+  "Dataset",
+  function(self) {
+    return(summary(self@url))
+  }
+)
+
+se
 open_ended <- list(
   'stats101-2019-01-11.csv' = Dataset(url="https://raw.githubusercontent.com/responsedb/datasets/master/open-ended/error-counts/stats101-2019-03-28.csv"),
   'stats101-2019-03-28.csv' = Dataset(url="https://raw.githubusercontent.com/responsedb/datasets/master/open-ended/error-counts/stats101-2019-05-02.csv")
 )
+
+# Problema de orientação ao objeto, não esta lendo como data.frame para poder fazer outras operações como normalizar os dados
+# e fazer uma descritiva dos dados (a função utilizada para a descritiva dos dados será o summary() ).
+
+dataset <- read(open_ended[['stats101-2019-01-11.csv']])
+
 
 
 # code --------------------------------------------------------------------
